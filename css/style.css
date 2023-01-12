@@ -15,7 +15,7 @@ h1{
     font-weight: 700;
     font-size: 56px;
     text-align: center;
-    margin-top: 5vh;
+    margin-top: 7vh;
 }
 .card {
     width: 160px;
@@ -45,14 +45,14 @@ h1{
     transform: rotateY(180deg);
   }
 
-  .rota {
+  .rotacaoTras {
     transform: rotateY(0deg);
   }
 
-  .rota2 {
+  .rotacaoFrente {
     transform: rotateY(-180deg);
   }
-  .back{
+  img{
     width: 100px;
     height: 100px;
   }
@@ -62,6 +62,9 @@ h1{
     margin-top: 5vw;
     justify-content: center;
     align-items: center;
+  }
+  .esconder{
+    display: none;
   }
   @media (max-width:1219px){
     .background{
@@ -74,5 +77,8 @@ h1{
     }
     .cartas{
         margin-top: 30px;
+        margin-left: 10vw;
+        margin-right: 10vw;
     }
   }
+
