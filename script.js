@@ -1,6 +1,8 @@
 let quantiaDeCartas = prompt("Com quantas cartas você quer jogar?");
+let quantiaDeCartas2 = [];
 const cartasDoJogo = document.querySelectorAll(".card");
 let cartasViradas = [];
+let quantiaDeRodadas = 0;
 
 function conferirQuantia(){
     while(true){
@@ -30,7 +32,8 @@ function virarCarta(clique){
     x.classList.add("rotacaoFrente");
     const y = clique.querySelector(".back-face");
     y.classList.add("rotacaoTras");
-    compararCartas(clique)
+    quantiaDeRodadas++
+    compararCartas(clique);
 }
 
 function desvirarCarta(clique){
@@ -50,15 +53,27 @@ function compararCartas(clique){
     cartasViradas.push(clique.querySelector(".rotacaoTras"));
     if (cartasViradas.length==4){
         if(cartasViradas[1].innerHTML!==cartasViradas[3].innerHTML){
-            setTimeout(desvirarCarta, 1000, clique)
+            setTimeout(desvirarCarta, 1000, clique);
         }
         if(cartasViradas[1].innerHTML==cartasViradas[3].innerHTML){
-            cartasViradas=[]
+            cartasViradas=[];
+            verVitoria()
         }
     }
+}
+
+function verVitoria(){
+    quantiaDeCartas2 = document.querySelectorAll(".rotacaoTras");
+    if(quantiaDeCartas2.length==quantiaDeCartas){
+        
+        setTimeout(alerta, 1000);
     }
+}
 
+function alerta(){
+    alert(`Você ganhou em ${quantiaDeRodadas} jogadas!`)
+}
 
-conferirQuantia()
-aparecerQuantia()
-embaralharCartas()
+conferirQuantia();
+aparecerQuantia();
+embaralharCartas();
