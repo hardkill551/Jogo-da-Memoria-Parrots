@@ -38,7 +38,7 @@ function embaralharCartas(){
 }
 
 function virarCarta(clique){
-    if (cliques !== clique){
+    if (cliques !== clique || cartasViradas.length==0){
         const x = clique.querySelector(".front-face");
         x.classList.add("rotacaoFrente");
         const y = clique.querySelector(".back-face");
