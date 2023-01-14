@@ -38,6 +38,7 @@ function embaralharCartas(){
 }
 
 function virarCarta(clique){
+    if (clique.querySelectorAll(".card .rotacaoFrente").length%2 !== 1){
     if (cliques !== clique || cartasViradas.length==0){
         const x = clique.querySelector(".front-face");
         x.classList.add("rotacaoFrente");
@@ -47,6 +48,7 @@ function virarCarta(clique){
         compararCartas(clique);
         cliques = clique
     }
+}
 }
 
 function desvirarCarta(clique){
