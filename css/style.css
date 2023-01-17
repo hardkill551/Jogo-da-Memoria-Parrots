@@ -64,14 +64,57 @@ h1{
     align-items: center;
   }
 
+  .escondido{
+    display: none;
+  }
+
+  button{
+    background-color: #86BD8D;
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    border-width: 2px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+ 
+  .timer{
+    color: #86BD8D;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 17px;
+    top: 17px;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+  }
   @media (max-width:1302px){
     .background{
         height: 100%;
     }
+    button{
+      position: static;
+      margin-bottom: 20px;
+    }
+  }
+  @media (min-width:420px) and (max-width:720px){
+    .timer{
+      top: 5px;
+      right: 15px;
+      font-size: 40px;
+    }
   }
   @media (max-width:600px){
     h1{
-        font-size: 34px;
+        font-size: 36px;
     }
     .cartas{
         margin-top: 30px;
@@ -79,4 +122,12 @@ h1{
         margin-right: 10vw;
     }
   }
-
+  @media (max-width:420px){
+  .timer{
+    position: fixed;
+    top: auto;
+    bottom: -3px;
+    right: 15px;
+    font-size: 10vw;
+  }
+  }

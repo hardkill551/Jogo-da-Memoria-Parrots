@@ -5,6 +5,12 @@ let quantiaDeRodadas = 0;
 let cartas = document.querySelector(".cartas");
 let listaComAsCartas = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot",];
 let cliques = 0;
+let temporizador = document.querySelector(".timer")
+
+function tempo(){
+    temporizador.innerHTML ++ 
+}
+
 
 function conferirQuantia(){
     while(true){
@@ -97,10 +103,34 @@ function verVitoria(){
 }
 
 function alerta(){
-    alert(`Você ganhou em ${quantiaDeRodadas} jogadas!`);
+    alert(`Você ganhou em ${quantiaDeRodadas} jogadas! A duração do jogo foi de ${temporizador.innerHTML} segundos!`);
+    clearInterval(pararTempo)
+    let restart = prompt('Gostaria de reiniciar o jogo? escreva "sim" ou "não"')
+    while (true){
+        if (restart == "sim"){
+            location.reload()
+            break
+        }
+        if (restart == "não"){
+            const botao = document.querySelector("button")
+            botao.classList.remove("escondido")
+            break
+        }
+        else {
+            alert('Escreva especificamente "sim" ou "não"')
+            restart = prompt('Gostaria de reiniciar o jogo? escreva "sim" ou "não"')
+        }
+    }
+    
 }
+
+function reiniciarJogo(){
+    location.reload()
+}
+
 
 conferirQuantia();
 aparecerQuantia();
 const cartasDoJogo = document.querySelectorAll(".card");
 embaralharCartas();
+const pararTempo = setInterval(tempo, 1000)
