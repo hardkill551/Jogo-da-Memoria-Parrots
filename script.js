@@ -6,6 +6,8 @@ let cartas = document.querySelector(".cartas");
 let listaComAsCartas = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot",];
 let cliques = 0;
 let temporizador = document.querySelector(".timer")
+let cartasDoJogo;
+const pararTempo = setInterval(tempo, 1000)
 
 function tempo(){
     temporizador.innerHTML ++ 
@@ -20,6 +22,7 @@ function conferirQuantia(){
         alert("Insira um valor entre 4 e 14 e par!");
         quantiaDeCartas = prompt("Com quantas cartas você quer jogar?");
     }
+    aparecerQuantia();
 }
 
 function aparecerQuantia(){
@@ -34,6 +37,8 @@ function aparecerQuantia(){
         </div>`
         }
     }
+    cartasDoJogo = document.querySelectorAll(".card");
+    embaralharCartas();
 }
 
 function embaralharCartas(){
@@ -105,20 +110,20 @@ function verVitoria(){
 function alerta(){
     alert(`Você ganhou em ${quantiaDeRodadas} jogadas! A duração do jogo foi de ${temporizador.innerHTML} segundos!`);
     clearInterval(pararTempo)
-    let restart = prompt('Gostaria de reiniciar o jogo? escreva "sim" ou "não"')
+    let restart = confirm('Gostaria de reiniciar o jogo?')
     while (true){
-        if (restart == "sim"){
+        if (restart == true){
             location.reload()
             break
         }
-        if (restart == "não"){
+        if (restart == false){
             const botao = document.querySelector("button")
             botao.classList.remove("escondido")
             break
         }
         else {
             alert('Escreva especificamente "sim" ou "não"')
-            restart = prompt('Gostaria de reiniciar o jogo? escreva "sim" ou "não"')
+            restart = confirm('Gostaria de reiniciar o jogo?')
         }
     }
     
@@ -130,7 +135,3 @@ function reiniciarJogo(){
 
 
 conferirQuantia();
-aparecerQuantia();
-const cartasDoJogo = document.querySelectorAll(".card");
-embaralharCartas();
-const pararTempo = setInterval(tempo, 1000)
