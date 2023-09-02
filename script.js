@@ -28,7 +28,7 @@ function conferirQuantia(){
 function aparecerQuantia(){
     for (let i = 0; i<quantiaDeCartas/2;i++){
         for(let j =0;j<2;j++){
-        cartas.innerText += `        <div class="card" onclick="virarCarta(this)" data-test="card">
+        cartas.innerHTML += `        <div class="card" onclick="virarCarta(this)" data-test="card">
         <div class="front-face face" >
           <img src="imgs/Arquivos Úteis - Projeto 04 - Parrot Card Game/back.png"  data-test="face-down-image" alt="">
         </div>
